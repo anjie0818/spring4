@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class ProfileConfig {
+    //不同情况实例化不同的bean
     @Bean
     @Profile("dev")
     public DemoBean devDemoBean(){

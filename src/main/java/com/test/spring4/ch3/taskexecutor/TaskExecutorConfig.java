@@ -11,11 +11,11 @@ import java.util.concurrent.Executor;
 
 @Configuration
 @ComponentScan("com.test.spring4.ch3.taskexecutor")
-@EnableAsync  //异步认为执行
+@EnableAsync  //开启对异步任务的执行
 public class TaskExecutorConfig implements AsyncConfigurer{
 //    获取线程池
     @Override
-    public Executor getAsyncExecutor() {
+    public Executor getAsyncExecutor() {//实现AsyncConfigurer接口，重写getAsyncExecutor，获得一个基于线程池的TaskExecutor(任务执行器)
         ThreadPoolTaskExecutor taskExecutor =new ThreadPoolTaskExecutor();
         taskExecutor.setCorePoolSize(5);
         taskExecutor.setMaxPoolSize(10);

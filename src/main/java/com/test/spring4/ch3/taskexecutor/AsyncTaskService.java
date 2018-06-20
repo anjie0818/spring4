@@ -5,10 +5,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AsyncTaskService {
-    @Async//说明异步方法
+    @Async//说明异步方法，这里的方法自动被注入ThreadPoolTaskExecutor作为TaskExecutor
     public void executeAsyncTask(Integer integer) throws InterruptedException {
         System.out.println("异步方法："+integer);
-        if (integer==5) Thread.sleep(1000);
     }
     @Async
     public void executeAsyncTaskPlus(Integer integer){
